@@ -8,8 +8,11 @@ public class Area {
     protected String name;
     protected String picture_path;
 
-    public Area(String name, String picture_path)
+    protected Trainer champion;
+
+    public Area(String name, String picture_path, Trainer trainer)
     {
+        champion = trainer;
         this.name = name;
         this.picture_path = picture_path;
     }
