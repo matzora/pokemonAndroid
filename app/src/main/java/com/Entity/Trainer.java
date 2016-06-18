@@ -17,7 +17,7 @@ public class Trainer {
         this.name = name;
     }
 
-    public void AddPokemon(PokemonTrainer pkm)
+    public void addPokemon(PokemonTrainer pkm)
     {
         if(pokemonNumber == 5)
         {

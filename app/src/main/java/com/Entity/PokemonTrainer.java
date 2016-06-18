@@ -14,11 +14,17 @@ public class PokemonTrainer extends Pokemon{
     protected Attack attack3;
     protected Attack attack4;
 
-    public PokemonTrainer(Pokemon pkm, int xp, int level, String nickname)
+    public PokemonTrainer(Pokemon pkm, int level, Attack atk1, Attack atk2, Attack atk3, Attack atk4)
     {
         super(pkm.getName(), pkm.getPv(), pkm.getAtk(), pkm.getDef()
                 ,pkm.getAtk_spe(), pkm.getDef_spe(), pkm.getVit()
                 , pkm.getXp_factor(), pkm.getCapture(), pkm.getAppear_chance());
+
+        this.level = level;
+        attack1 = atk1;
+        attack2 = atk2;
+        attack3 = atk3;
+        attack4 = atk4;
     }
 
     public PokemonTrainer(String name, int pv, int atk, int def, int atk_spe, int def_spe, int vit, int xp_factor, int capture, int appear_chance, int xp, int level, String nickname, Attack attack1, Attack attack2, Attack attack3, Attack attack4) {

@@ -2,9 +2,11 @@ package com.Core;
 
 import com.Entity.Area;
 import com.Entity.Attack;
+import com.Entity.Pokemon;
 import com.Entity.Trainer;
 import com.Utils.AreaBuilder;
 import com.Utils.AttackBuilder;
+import com.Utils.PokemonBuilder;
 import com.Utils.TrainerBuilder;
 
 import java.util.ArrayList;
@@ -16,6 +18,9 @@ import java.util.List;
 public class PokemonCore {
     private static PokemonCore ourInstance = null;
 
+    protected Trainer player;
+
+    protected ArrayList<Pokemon> pokemons;
     protected ArrayList<Area> areas;
     protected ArrayList<Attack> attacks;
 
@@ -30,8 +35,11 @@ public class PokemonCore {
 
     private PokemonCore() {
 
-        ArrayList<Trainer> trainers = TrainerBuilder.getTrainerList();
+        pokemons = PokemonBuilder.getPokemonList();
         attacks = AttackBuilder.getAttackList();
+        player = TrainerBuilder.getPlayerTrainer(pokemons, attacks);
+        ArrayList<Trainer> trainers = TrainerBuilder.getTrainerList(pokemons, attacks);
+
         areas = AreaBuilder.getAreaList(trainers);
     }
 

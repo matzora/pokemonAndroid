@@ -40,7 +40,7 @@
         jar="D:\Mathieu_Travail\Android_Projects\Pokemon\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="1fc98d40fe4567c5cc65947fab1a181120f69c40">
+        sha1="e0c4d7d9fc2cbb52ea1f24d55b77c0d0c7000b3d">
         <dex dex="D:\Mathieu_Travail\Android_Projects\Pokemon\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_80bafd6adc3242f3fab0a57e2869267e1fab4678\classes.dex" />
     </item>
     <item
@@ -68,7 +68,7 @@
         jar="D:\Mathieu_Travail\Android_Projects\Pokemon\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="023e4afdb98bc9bbec452363c42f0b425d6dc2dc">
+        sha1="d64680af6d564072c62920ea82bc2a4238bb6895">
         <dex dex="D:\Mathieu_Travail\Android_Projects\Pokemon\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_9ee14e77b4a691afefe1fd50a01d117fd1e79070\classes.dex" />
     </item>
 
