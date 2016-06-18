@@ -8,10 +8,14 @@ import android.widget.Button;
 
 public class StartPage extends AppCompatActivity {
 
+    public static String PACKAGE_NAME;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
+
+        PACKAGE_NAME = getApplicationContext().getPackageName();
 
         Button btn = (Button)findViewById(R.id.buttonStart);
         btn.setOnClickListener(new View.OnClickListener() {

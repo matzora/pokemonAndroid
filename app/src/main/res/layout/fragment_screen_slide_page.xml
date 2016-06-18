@@ -9,18 +9,34 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView android:id="@android:id/text1"
-            style="?android:textAppearanceLarge"
-            android:textStyle="bold"
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp" />
+            android:layout_height="380dp"
+            android:id="@+id/AreaImage"
+            android:src="@drawable/jadielle"/>
 
-        <TextView style="?android:textAppearanceMedium"
-            android:lineSpacingMultiplier="1.2"
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="test" />
+            android:id="@+id/FightChampionButton" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--<ListView
+                android:layout_width="133dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/listView" />-->
+
+            <!--<Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fight Trainer"
+                android:id="@+id/FightTrainerButton" />-->
+        </LinearLayout>
+
 
     </LinearLayout>
 

@@ -9,6 +9,9 @@ import android.support.v4.view.PagerAdapter;
 
 import android.support.v4.view.ViewPager;
 
+import com.Core.PokemonCore;
+import com.Entity.Area;
+
 /**
  * Created by Mathieu on 18/06/2016.
  */
@@ -17,7 +20,7 @@ public class ScreenSlidePagerActivity extends FragmentActivity{
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
-    private static final int NUM_PAGES = 5;
+    private static int NUM_PAGES = 5;
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -35,10 +38,14 @@ public class ScreenSlidePagerActivity extends FragmentActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_slide);
 
+        NUM_PAGES = PokemonCore.getInstance().getAreaCount();
+
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+
+
     }
 
     @Override
@@ -64,7 +71,15 @@ public class ScreenSlidePagerActivity extends FragmentActivity{
 
         @Override
         public Fragment getItem(int position) {
-            return new ScreenSlidePageFragment();
+            ScreenSlidePageFragment fragment = new ScreenSlidePageFragment();
+
+            PokemonCore core = PokemonCore.getInstance();
+
+            Area a = core.getAreaByPosition(position);
+
+            fragment.setArea(a);
+
+            return fragment;
         }
 
         @Override
