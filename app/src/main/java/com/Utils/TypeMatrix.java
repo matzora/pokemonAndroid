@@ -256,7 +256,7 @@ public class TypeMatrix {
         typeMatrix[Type.Dragon.ordinal()][Type.Dragon.ordinal()] = 2;
     }
 
-    public double getDefendingMultiplier(Type fighter, Type defender)
+    public double getMultiplier(Type fighter, Type defender)
     {
         return typeMatrix[fighter.ordinal()][defender.ordinal()];
     }

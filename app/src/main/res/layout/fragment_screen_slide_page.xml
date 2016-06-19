@@ -9,6 +9,13 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="TitleArea"
+            android:id="@+id/TitleAreaText" />
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="380dp"
@@ -18,7 +25,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/FightChampionButton" />
+            android:id="@+id/FightChampionButton"
+            android:text="Fight the master" />
 
         <LinearLayout
             android:orientation="horizontal"

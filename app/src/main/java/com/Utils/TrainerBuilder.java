@@ -19,7 +19,7 @@ public class TrainerBuilder {
         trainer.addPokemon(new PokemonTrainer(pokemons.get(136),100, attacks.get(85), attacks.get(120), attacks.get(141), null));
         trainer.addPokemon(new PokemonTrainer(pokemons.get(143),100, attacks.get(97), attacks.get(88), attacks.get(70), null));
 
-        return null;
+        return trainer;
     }
 
     public static ArrayList<Trainer> getTrainerList(ArrayList<Pokemon> pokemons, ArrayList<Attack> attacks)
@@ -31,6 +31,8 @@ public class TrainerBuilder {
         //Mr Mime 122
         chen.addPokemon(new PokemonTrainer(pokemons.get(99),100, attacks.get(160), attacks.get(88), attacks.get(97), attacks.get(40)));
         chen.addPokemon(new PokemonTrainer(pokemons.get(122),100, attacks.get(23), attacks.get(142), null, null));
+
+        trainers.add(chen);
 
         Trainer giovanni = new Trainer("Champion Giovanni");
         //Rhinoferos 112
@@ -44,6 +46,8 @@ public class TrainerBuilder {
         //giovanni.addPokemon(new PokemonTrainer(pokemons.get(34),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         //giovanni.addPokemon(new PokemonTrainer(pokemons.get(115),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
 
+        trainers.add(giovanni);
+
         Trainer samourai = new Trainer("Jeune Samouraï");
         //Scarabrute 127
         //Papilusion 12
@@ -54,6 +58,8 @@ public class TrainerBuilder {
         samourai.addPokemon(new PokemonTrainer(pokemons.get(15),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         samourai.addPokemon(new PokemonTrainer(pokemons.get(47),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
 
+        trainers.add(samourai);
+
         Trainer pierre = new Trainer("Champion Pierre");
         //Onix 95
         //Grolem 76
@@ -61,6 +67,8 @@ public class TrainerBuilder {
         pierre.addPokemon(new PokemonTrainer(pokemons.get(95),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         pierre.addPokemon(new PokemonTrainer(pokemons.get(76),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         pierre.addPokemon(new PokemonTrainer(pokemons.get(139),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
+
+        trainers.add(pierre);
 
         Trainer chercheur = new Trainer("Chercheur");
         //Grotadmorv 89
@@ -70,6 +78,8 @@ public class TrainerBuilder {
         chercheur.addPokemon(new PokemonTrainer(pokemons.get(82),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         chercheur.addPokemon(new PokemonTrainer(pokemons.get(38),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
 
+        trainers.add(chercheur);
+
         Trainer ondine = new Trainer("Champion Ondine");
         //Staross 121
         //Poisoroy 119
@@ -77,6 +87,8 @@ public class TrainerBuilder {
         ondine.addPokemon(new PokemonTrainer(pokemons.get(121),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         ondine.addPokemon(new PokemonTrainer(pokemons.get(119),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         ondine.addPokemon(new PokemonTrainer(pokemons.get(134),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
+
+        trainers.add(ondine);
 
         Trainer major = new Trainer("Champion Major Bob");
         //Raichu 26
@@ -86,6 +98,8 @@ public class TrainerBuilder {
         major.addPokemon(new PokemonTrainer(pokemons.get(101),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         major.addPokemon(new PokemonTrainer(pokemons.get(125),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
 
+        trainers.add(major);
+
         Trainer tunnelMan = new Trainer("L'expert en tunnels");
         //Triopikeur 51
         //Triopikeur 51
@@ -94,17 +108,23 @@ public class TrainerBuilder {
         tunnelMan.addPokemon(new PokemonTrainer(pokemons.get(51),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         tunnelMan.addPokemon(new PokemonTrainer(pokemons.get(51),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
 
+        trainers.add(tunnelMan);
+
         Trainer grotte = new Trainer("Le collectionneur");
         //Flagadoss 80
         //Noadkoko 103
         grotte.addPokemon(new PokemonTrainer(pokemons.get(80),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         grotte.addPokemon(new PokemonTrainer(pokemons.get(103),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
 
+        trainers.add(grotte);
+
         Trainer lavanville = new Trainer("Amateur de fantomes");
         //Ectoplasma 94
         //Ectoplasma 94
         lavanville.addPokemon(new PokemonTrainer(pokemons.get(94),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         lavanville.addPokemon(new PokemonTrainer(pokemons.get(94),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
+
+        trainers.add(lavanville);
 
         Trainer erica = new Trainer("Champion Erica");
         //Empiflor 71
@@ -114,6 +134,8 @@ public class TrainerBuilder {
         erica.addPokemon(new PokemonTrainer(pokemons.get(45),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         erica.addPokemon(new PokemonTrainer(pokemons.get(3),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
 
+        trainers.add(erica);
+
         Trainer koga = new Trainer("Champion Koga");
         //Grotadmorv 89
         //Smogogo 110
@@ -121,6 +143,8 @@ public class TrainerBuilder {
         koga.addPokemon(new PokemonTrainer(pokemons.get(89),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         koga.addPokemon(new PokemonTrainer(pokemons.get(110),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         koga.addPokemon(new PokemonTrainer(pokemons.get(24),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
+
+        trainers.add(koga);
 
         Trainer morgane = new Trainer("Champion Morgane");
         //Alakazam 65
@@ -130,11 +154,23 @@ public class TrainerBuilder {
         morgane.addPokemon(new PokemonTrainer(pokemons.get(97),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         morgane.addPokemon(new PokemonTrainer(pokemons.get(103),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
 
-        Trainer ecumes = new Trainer("Champion Erica");
+        trainers.add(morgane);
+
+        Trainer ecumes = new Trainer("Adorateur du gel");
         //Lamantine 87
         //Crustabri 91
         ecumes.addPokemon(new PokemonTrainer(pokemons.get(87),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         ecumes.addPokemon(new PokemonTrainer(pokemons.get(91),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
+
+        trainers.add(ecumes);
+
+        Trainer auguste = new Trainer("Champion Auguste");
+        //Arcanin 59
+        //Galopa 78
+        ecumes.addPokemon(new PokemonTrainer(pokemons.get(59),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
+        ecumes.addPokemon(new PokemonTrainer(pokemons.get(78),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
+
+        trainers.add(ecumes);
 
         Trainer routeVictoire = new Trainer("Regis");
         //Tortank 9
@@ -144,6 +180,8 @@ public class TrainerBuilder {
         routeVictoire.addPokemon(new PokemonTrainer(pokemons.get(135),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         routeVictoire.addPokemon(new PokemonTrainer(pokemons.get(18),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
 
+        trainers.add(routeVictoire);
+
         Trainer plateauIndigo = new Trainer("Peter le seigneur dragon");
         //Dracolosse 149
         //Ptera 142
@@ -151,6 +189,8 @@ public class TrainerBuilder {
         plateauIndigo.addPokemon(new PokemonTrainer(pokemons.get(149),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         plateauIndigo.addPokemon(new PokemonTrainer(pokemons.get(142),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
         plateauIndigo.addPokemon(new PokemonTrainer(pokemons.get(6),100, attacks.get(0), attacks.get(0), attacks.get(0), attacks.get(0)));
+
+        trainers.add(plateauIndigo);
 
         return trainers;
     }

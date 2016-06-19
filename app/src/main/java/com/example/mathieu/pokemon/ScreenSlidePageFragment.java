@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.Entity.Area;
 
@@ -22,8 +23,6 @@ public class ScreenSlidePageFragment extends Fragment{
 
     View myFragmentView;
     Area area;
-
-    final String FIGHTCHAMPIONBUTTONTEXT = "Fight the master of ";
 
     public ScreenSlidePageFragment()
     {
@@ -40,11 +39,13 @@ public class ScreenSlidePageFragment extends Fragment{
         String uri = "@drawable/"+area.getPicture_path();
 
         int imageResource = getResources().getIdentifier(uri, null, StartPage.PACKAGE_NAME);
-        imv.setImageResource(imageResource)
-        ;
+        imv.setImageResource(imageResource);
+
+        TextView title = (TextView)myFragmentView.findViewById(R.id.TitleAreaText);
+        title.setText(area.getName());
+
         Button btn = (Button)myFragmentView.findViewById(R.id.FightChampionButton);
 
-        btn.setText(FIGHTCHAMPIONBUTTONTEXT + area.getName());
 
         return myFragmentView;
     }

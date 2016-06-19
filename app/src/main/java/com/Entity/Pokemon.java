@@ -15,9 +15,12 @@ public class Pokemon {
     protected int capture;
     protected int appear_chance;
 
-    public Pokemon(String name, int pv, int atk, int def, int atk_spe, int def_spe, int vit, int xp_factor, int capture, int appear_chance) {
+    protected Type type;
+
+    public Pokemon(String name, Type type, int pv, int atk, int def, int atk_spe, int def_spe, int vit, int xp_factor, int capture, int appear_chance) {
 
         this.name = name;
+        this.type = type;
         this.pv = pv;
         this.atk = atk;
         this.def = def;
@@ -27,6 +30,14 @@ public class Pokemon {
         this.xp_factor = xp_factor;
         this.capture = capture;
         this.appear_chance = appear_chance;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
     public String getName() {

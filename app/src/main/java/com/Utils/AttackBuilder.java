@@ -182,6 +182,6 @@ public class AttackBuilder {
         attacks.add(new Attack(Type.Normal,"Tranche",true,70,100));
         attacks.add(new Attack(Type.Normal,"Lutte",true,50,100));
 
-        return null;
+        return attacks;
     }
 }
