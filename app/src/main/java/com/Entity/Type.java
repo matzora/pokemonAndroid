@@ -1,5 +1,6 @@
 package com.Entity;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +9,7 @@ import java.util.Map;
 /**
  * Created by Mathieu on 18/06/2016.
  */
-public enum Type {
+public enum Type implements Serializable{
 
     Normal("Normal"),
     Fight("Fight"),

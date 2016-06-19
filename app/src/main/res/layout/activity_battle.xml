@@ -1,29 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="39dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="pokemonName"
-            android:id="@+id/textView" />
+            android:id="@+id/ennemyPokemonNameText" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Level"
-            android:id="@+id/textView2" />
+            android:id="@+id/ennemyPokemonLevelText"
+            android:layout_marginLeft="30px"/>
 
         <ProgressBar
             style="?android:attr/progressBarStyleSmall"
             android:layout_width="match_parent"
-            android:layout_height="261dp"
-            android:id="@+id/progressBar" />
+            android:layout_height="30px"
+            android:id="@+id/ennemyPokemonLifeProgressBar"
+            android:indeterminate="false" />
     </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="50px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pokemonName"
+            android:id="@+id/playerPokemonNameText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Level"
+            android:id="@+id/playerPokemonLevelText"
+            android:layout_marginLeft="30px" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="30px"
+            android:id="@+id/playerPokemonLifeProgressBar"
+            android:indeterminate="false" />
+    </LinearLayout>
+
 </LinearLayout>

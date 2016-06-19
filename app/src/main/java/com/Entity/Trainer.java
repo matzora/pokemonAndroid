@@ -1,9 +1,11 @@
 package com.Entity;
 
+import java.io.Serializable;
+
 /**
  * Created by Mathieu on 18/06/2016.
  */
-public class Trainer {
+public class Trainer  implements Serializable {
     protected String name;
     protected Npc npc;
 
@@ -25,5 +27,29 @@ public class Trainer {
         }
         pokemons[pokemonNumber] = pkm;
         pokemonNumber ++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Npc getNpc() {
+        return npc;
+    }
+
+    public void setNpc(Npc npc) {
+        this.npc = npc;
+    }
+
+    public PokemonTrainer[] getPokemons() {
+        return pokemons;
+    }
+
+    public void setPokemons(PokemonTrainer[] pokemons) {
+        this.pokemons = pokemons;
     }
 }

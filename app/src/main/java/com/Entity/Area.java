@@ -1,9 +1,11 @@
 package com.Entity;
 
+import java.io.Serializable;
+
 /**
  * Created by Mathieu on 18/06/2016.
  */
-public class Area {
+public class Area implements Serializable{
 
     protected String name;
     protected String picture_path;
@@ -31,5 +33,13 @@ public class Area {
 
     public void setPicture_path(String picture_path) {
         this.picture_path = picture_path;
+    }
+
+    public Trainer getChampion() {
+        return champion;
+    }
+
+    public void setChampion(Trainer champion) {
+        this.champion = champion;
     }
 }

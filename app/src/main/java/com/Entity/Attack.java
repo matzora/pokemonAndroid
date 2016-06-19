@@ -1,9 +1,11 @@
 package com.Entity;
 
+import java.io.Serializable;
+
 /**
  * Created by Mathieu on 18/06/2016.
  */
-public class Attack {
+public class Attack  implements Serializable {
 
     protected Type type;
     protected String name;

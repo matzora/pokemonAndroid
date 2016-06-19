@@ -70,4 +70,12 @@ public class PokemonCore {
     {
         return areas.size();
     }
+
+    public Trainer getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Trainer player) {
+        this.player = player;
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.mathieu.pokemon;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.Core.PokemonCore;
 import com.Entity.Area;
 
 import java.lang.reflect.Field;
@@ -46,6 +48,17 @@ public class ScreenSlidePageFragment extends Fragment{
 
         Button btn = (Button)myFragmentView.findViewById(R.id.FightChampionButton);
 
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), BattleActivity.class);
+
+                i.putExtra("player", PokemonCore.getInstance().getPlayer());
+                i.putExtra("ennemy", area.getChampion());
+
+                startActivity(i);
+            }
+        });
 
         return myFragmentView;
     }
