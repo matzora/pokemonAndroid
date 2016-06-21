@@ -9,6 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="39dp">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ennemyPkmImage"
+            android:src="@drawable/p1"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,39 +28,104 @@
             android:id="@+id/ennemyPokemonLevelText"
             android:layout_marginLeft="30px"/>
 
-        <ProgressBar
-            style="?android:attr/progressBarStyleSmall"
-            android:layout_width="match_parent"
-            android:layout_height="30px"
-            android:id="@+id/ennemyPokemonLifeProgressBar"
-            android:indeterminate="false" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:text="Actual Life"
+            android:id="@+id/ennemyPokemonActualLifeText"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Max Life"
+            android:id="@+id/ennemyPokemonMaxLifeText"/>
     </LinearLayout>
+
+    <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="42dp"
+    android:layout_marginTop="50px">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/playerPokemonImage"
+        android:src="@drawable/p1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pokemonName"
+        android:id="@+id/playerPokemonNameText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Level"
+        android:id="@+id/playerPokemonLevelText"
+        android:layout_marginLeft="30px" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:text="Actual Life"
+        android:id="@+id/playerPokemonActualLifeText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Max Life"
+        android:id="@+id/playerPokemonMaxLifeText"/>
+
+
+</LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_marginTop="50px">
+        android:layout_height="200px">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/BattleConsole"
+            android:gravity="left"
             android:layout_height="wrap_content"
-            android:text="pokemonName"
-            android:id="@+id/playerPokemonNameText" />
-
-        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Level"
-            android:id="@+id/playerPokemonLevelText"
-            android:layout_marginLeft="30px" />
+            android:maxLines="4"
+            android:lines="4"
+            android:text="@string/lorem"></TextView>
 
-        <ProgressBar
-            style="?android:attr/progressBarStyleSmall"
-            android:layout_width="match_parent"
-            android:layout_height="30px"
-            android:id="@+id/playerPokemonLifeProgressBar"
-            android:indeterminate="false" />
     </LinearLayout>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <Button android:id="@+id/attack1Btn" android:text="Attaque 1" android:layout_weight="1"/>
+            <Button android:id="@+id/attack2Btn" android:text="Attaque 2" android:layout_weight="1"/>
+        </TableRow>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <Button android:id="@+id/attack3Btn" android:text="Attaque 3" android:layout_weight="1"/>
+            <Button android:id="@+id/attack4Btn" android:text="Attaque 4" android:layout_weight="1"/>
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

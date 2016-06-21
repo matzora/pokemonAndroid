@@ -14,9 +14,19 @@ public class PokemonTrainer extends Pokemon{
     protected Attack attack3;
     protected Attack attack4;
 
+    public int getCurrentPV() {
+        return currentPV;
+    }
+
+    public void setCurrentPV(int currentPV) {
+        this.currentPV = currentPV;
+    }
+
+    protected int currentPV;
+
     public PokemonTrainer(Pokemon pkm, int level, Attack atk1, Attack atk2, Attack atk3, Attack atk4)
     {
-        super(pkm.getName(), pkm.getType(), pkm.getPv(), pkm.getAtk(), pkm.getDef()
+        super(pkm.getId(), pkm.getName(), pkm.getType(), pkm.getPv(), pkm.getAtk(), pkm.getDef()
                 ,pkm.getAtk_spe(), pkm.getDef_spe(), pkm.getVit()
                 , pkm.getXp_factor(), pkm.getCapture(), pkm.getAppear_chance());
 
@@ -27,8 +37,8 @@ public class PokemonTrainer extends Pokemon{
         attack4 = atk4;
     }
 
-    public PokemonTrainer(String name, Type type, int pv, int atk, int def, int atk_spe, int def_spe, int vit, int xp_factor, int capture, int appear_chance, int xp, int level, String nickname, Attack attack1, Attack attack2, Attack attack3, Attack attack4) {
-        super(name, type, pv, atk, def, atk_spe, def_spe, vit, xp_factor, capture, appear_chance);
+    public PokemonTrainer(int id, String name, Type type, int pv, int atk, int def, int atk_spe, int def_spe, int vit, int xp_factor, int capture, int appear_chance, int xp, int level, String nickname, Attack attack1, Attack attack2, Attack attack3, Attack attack4) {
+        super(id, name, type, pv, atk, def, atk_spe, def_spe, vit, xp_factor, capture, appear_chance);
         this.xp = xp;
         this.level = level;
         this.nickname = nickname;

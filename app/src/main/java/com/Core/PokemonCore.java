@@ -3,6 +3,7 @@ package com.Core;
 import com.Entity.Area;
 import com.Entity.Attack;
 import com.Entity.Pokemon;
+import com.Entity.PokemonTrainer;
 import com.Entity.Trainer;
 import com.Entity.Type;
 import com.Utils.AreaBuilder;
@@ -78,4 +79,13 @@ public class PokemonCore {
     public void setPlayer(Trainer player) {
         this.player = player;
     }
+
+    public ArrayList<Pokemon> getPokemons() {
+        return pokemons;
+    }
+
+    public void setPokemons(ArrayList<Pokemon> pokemons) {
+        this.pokemons = pokemons;
+    }
+
 }

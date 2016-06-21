@@ -6,6 +6,8 @@ import java.io.Serializable;
  * Created by Mathieu on 18/06/2016.
  */
 public class Pokemon implements Serializable {
+
+    protected int id;
     protected String name;
     protected int pv;
     protected int atk;
@@ -19,8 +21,9 @@ public class Pokemon implements Serializable {
 
     protected Type type;
 
-    public Pokemon(String name, Type type, int pv, int atk, int def, int atk_spe, int def_spe, int vit, int xp_factor, int capture, int appear_chance) {
+    public Pokemon(int id, String name, Type type, int pv, int atk, int def, int atk_spe, int def_spe, int vit, int xp_factor, int capture, int appear_chance) {
 
+        this.id = id;
         this.name = name;
         this.type = type;
         this.pv = pv;
@@ -121,4 +124,13 @@ public class Pokemon implements Serializable {
     public void setAppear_chance(int appear_chance) {
         this.appear_chance = appear_chance;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }
