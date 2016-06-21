@@ -27,7 +27,6 @@ public enum Type implements Serializable{
     Ice("Ice"),
     Dragon("Dragon");
 
-    protected int index;
     protected String name;
 
     Type(String name)

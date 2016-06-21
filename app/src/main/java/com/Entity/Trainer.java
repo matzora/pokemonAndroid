@@ -29,6 +29,27 @@ public class Trainer  implements Serializable {
         pokemonNumber ++;
     }
 
+    public PokemonTrainer getNextPokemonTrainer()
+    {
+        for(int i = 0 ; i < pokemons.length ; i ++)
+        {
+            PokemonTrainer p = pokemons[i];
+
+            if(p == null)
+            {
+                return null;
+            }
+            else
+            {
+                if(!p.isDead())
+                {
+                    return pokemons[i];
+                }
+            }
+        }
+        return null;
+    }
+
     public String getName() {
         return name;
     }

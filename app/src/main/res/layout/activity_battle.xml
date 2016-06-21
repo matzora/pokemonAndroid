@@ -1,97 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/battleLayout">
 
-    <LinearLayout
+    <fragment android:name="com.example.mathieu.pokemon.PokemonBattleFragment"
+        android:id="@+id/ennemyPokemon"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="39dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ennemyPkmImage"
-            android:src="@drawable/p1"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="pokemonName"
-            android:id="@+id/ennemyPokemonNameText" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Level"
-            android:id="@+id/ennemyPokemonLevelText"
-            android:layout_marginLeft="30px"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30px"
-            android:text="Actual Life"
-            android:id="@+id/ennemyPokemonActualLifeText"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="/"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Max Life"
-            android:id="@+id/ennemyPokemonMaxLifeText"/>
-    </LinearLayout>
-
-    <LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="42dp"
-    android:layout_marginTop="50px">
-
-    <ImageView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/playerPokemonImage"
-        android:src="@drawable/p1"/>
+        tools:layout="@layout/fragment_pokemon_battle">
 
-    <TextView
-        android:layout_width="wrap_content"
+    </fragment>
+
+    <fragment android:name="com.example.mathieu.pokemon.PokemonBattleFragment"
+        android:id="@+id/playerPokemon"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="pokemonName"
-        android:id="@+id/playerPokemonNameText" />
+        tools:layout="@layout/fragment_pokemon_battle">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Level"
-        android:id="@+id/playerPokemonLevelText"
-        android:layout_marginLeft="30px" />
+    </fragment>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30px"
-        android:text="Actual Life"
-        android:id="@+id/playerPokemonActualLifeText"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="/"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Max Life"
-        android:id="@+id/playerPokemonMaxLifeText"/>
-
-
-</LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"

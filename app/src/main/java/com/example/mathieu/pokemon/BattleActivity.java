@@ -1,12 +1,11 @@
 package com.example.mathieu.pokemon;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.Core.PokemonCore;
@@ -26,62 +25,40 @@ public class BattleActivity  extends AppCompatActivity {
     protected PokemonTrainer playerActivePokemon;
     protected PokemonTrainer ennemyActivePokemon;
 
+    protected PokemonBattleFragment ennemyPokemonFragment;
+    protected PokemonBattleFragment playerPokemonFragment;
+
+    private final String TEXT_FAIL = "Echec Critique";
+    private final String TEXT_POKEMON_DEAD = "Est KO";
+    private final String TEXT_WIN = "Vous avez gagné !";
+    private final String TEXT_LOSE = "Vous avez perdu !";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle);
 
-        this.setTitle("");
-
         player = (Trainer)getIntent().getSerializableExtra("player");
         ennemy = (Trainer)getIntent().getSerializableExtra("ennemy");
 
-        ImageView ennemyPkmImage = (ImageView)findViewById(R.id.ennemyPkmImage);
-        TextView ennemyName = (TextView)findViewById(R.id.ennemyPokemonNameText);
-        TextView ennemyLevel = (TextView)findViewById(R.id.ennemyPokemonLevelText);
-        TextView ennemyActualLife = (TextView)findViewById(R.id.ennemyPokemonActualLifeText);
-        TextView ennemyMaxLife = (TextView)findViewById(R.id.ennemyPokemonMaxLifeText);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        this.ennemyPokemonFragment = (PokemonBattleFragment) fragmentManager.findFragmentById(R.id.ennemyPokemon);
+        this.playerPokemonFragment = (PokemonBattleFragment) fragmentManager.findFragmentById(R.id.playerPokemon);
 
-        ennemyActivePokemon = ennemy.getPokemons()[0];
+        playerActivePokemon = player.getNextPokemonTrainer();
+        ennemyActivePokemon = ennemy.getNextPokemonTrainer();
 
-        String uriEnnemy = "@drawable/p"+ ennemyActivePokemon.getId();
-        int imageResourceEnnemy = getResources().getIdentifier(uriEnnemy, "drawable", StartPage.PACKAGE_NAME);
-        ennemyPkmImage.setImageResource(imageResourceEnnemy);
-
-        ennemyName.setText(ennemyActivePokemon.getName());
-        ennemyLevel.setText(""+ennemyActivePokemon.getLevel());
-
-        int ennemyActualPV = BattleCalculator.getPVByLevel(ennemyActivePokemon.getPv(),ennemyActivePokemon.getLevel());
-        ennemyActualLife.setText(""+ennemyActualPV);
-        ennemyMaxLife.setText(""+ennemyActualPV);
-
-        ImageView playerPkmImage = (ImageView)findViewById(R.id.playerPokemonImage);
-        TextView playerName = (TextView)findViewById(R.id.playerPokemonNameText);
-        TextView playerLevel = (TextView)findViewById(R.id.playerPokemonLevelText);
-        TextView playerActualLife = (TextView)findViewById(R.id.playerPokemonActualLifeText);
-        TextView playerMaxLife = (TextView)findViewById(R.id.playerPokemonMaxLifeText);
-
-        playerActivePokemon = player.getPokemons()[0];
-
-        String uriPlayer = "@drawable/p"+ playerActivePokemon.getId();
-        int imageResource = getResources().getIdentifier(uriPlayer, "drawable", StartPage.PACKAGE_NAME);
-        playerPkmImage.setImageResource(imageResource);
-
-        playerName.setText(playerActivePokemon.getName());
-        playerLevel.setText(""+playerActivePokemon.getLevel());
-
-        int playerPokemonLife = BattleCalculator.getPVByLevel(playerActivePokemon.getPv(),playerActivePokemon.getLevel());
-        playerActualLife.setText(""+playerPokemonLife);
-        playerMaxLife.setText(""+playerPokemonLife);
+        this.ennemyPokemonFragment.setPokemonTrainer(ennemyActivePokemon);
+        this.playerPokemonFragment.setPokemonTrainer(playerActivePokemon);
 
         Button attack1 = (Button)findViewById(R.id.attack1Btn);
-        if(playerActivePokemon.getAttack1() == null)
+        if(player.getPokemons()[0].getAttack1() == null)
         {
             attack1.setEnabled(false);
         }
         else
         {
-            attack1.setText(playerActivePokemon.getAttack1().getName());
+            attack1.setText(player.getPokemons()[0].getAttack1().getName());
         }
 
         attack1.setOnClickListener(new View.OnClickListener() {
@@ -92,13 +69,13 @@ public class BattleActivity  extends AppCompatActivity {
         });
 
         Button attack2 = (Button)findViewById(R.id.attack2Btn);
-        if(playerActivePokemon.getAttack2() == null)
+        if(player.getPokemons()[0].getAttack2() == null)
         {
             attack2.setEnabled(false);
         }
         else
         {
-            attack2.setText(playerActivePokemon.getAttack2().getName());
+            attack2.setText(player.getPokemons()[0].getAttack2().getName());
         }
         attack2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,13 +85,13 @@ public class BattleActivity  extends AppCompatActivity {
         });
 
         Button attack3 = (Button)findViewById(R.id.attack3Btn);
-        if(playerActivePokemon.getAttack3() == null)
+        if(player.getPokemons()[0].getAttack3() == null)
         {
             attack3.setEnabled(false);
         }
         else
         {
-            attack3.setText(playerActivePokemon.getAttack3().getName());
+            attack3.setText(player.getPokemons()[0].getAttack3().getName());
         }
         attack3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,13 +101,13 @@ public class BattleActivity  extends AppCompatActivity {
         });
 
         Button attack4 = (Button)findViewById(R.id.attack4Btn);
-        if(playerActivePokemon.getAttack4() == null)
+        if(player.getPokemons()[0].getAttack4() == null)
         {
             attack4.setEnabled(false);
         }
         else
         {
-            attack4.setText(playerActivePokemon.getAttack4().getName());
+            attack4.setText(player.getPokemons()[0].getAttack4().getName());
         }
         attack4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,6 +116,75 @@ public class BattleActivity  extends AppCompatActivity {
             }
         });
     }
+
+    public void OnAttack(Attack attack)
+    {
+        double multiplicator = PokemonCore.getInstance().getTypeMatrix().getMultiplier(
+                attack.getType(),ennemyActivePokemon.getType());
+
+        int attackStat;
+        int defStat;
+
+        if(attack.isPhysical())
+        {
+            attackStat = playerActivePokemon.getBattleAtk();
+            defStat = ennemyActivePokemon.getBattleDef();
+        }
+        else
+        {
+            attackStat = playerActivePokemon.getBattleAtk_Spe();
+            defStat = playerActivePokemon.getBattleDef_Spe();
+        }
+
+        int damageDealsToEnnemy = BattleCalculator.getDamageDeals(attackStat,defStat,playerActivePokemon.getLevel(),attack.getDamage(),multiplicator);
+
+        String messageToDisplay = BattleCalculator.getMessageAttackFromMultiplicator(multiplicator);
+
+        boolean isSucceedAttack = BattleCalculator.isSucceedAttack(attack.getAccuracy(),1,1);
+
+        TextView console = (TextView)findViewById(R.id.BattleConsole);
+
+        if(isSucceedAttack)
+        {
+            ennemyActivePokemon.losePv(damageDealsToEnnemy);
+            console.setText(messageToDisplay + " : "+damageDealsToEnnemy);
+        }
+        else
+        {
+            console.setText(TEXT_FAIL);
+        }
+        ennemyPokemonFragment.updatePokemon();
+
+        if(ennemyActivePokemon.isDead())
+        {
+            console.setText(ennemyActivePokemon.getName()+" "+TEXT_POKEMON_DEAD);
+
+            PokemonTrainer p = ennemy.getNextPokemonTrainer();
+
+            if(p == null)
+            {
+                console.setText(TEXT_WIN);
+                LinearLayout le = (LinearLayout)findViewById(R.id.battleLayout);
+                le.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                });
+            }
+            else
+            {
+                ennemyActivePokemon = ennemy.getNextPokemonTrainer();
+                ennemyPokemonFragment.setPokemonTrainer(ennemyActivePokemon);
+            }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+
+    }
+
 
     protected void setPlayer(Trainer t)
     {
@@ -157,24 +203,4 @@ public class BattleActivity  extends AppCompatActivity {
     public void setPlayerActivePokemon(PokemonTrainer playerActivePokemon) {
         this.playerActivePokemon = playerActivePokemon;
     }
-
-    public PokemonTrainer getEnnemyActivePokemon() {
-        return ennemyActivePokemon;
-    }
-
-    public void setEnnemyActivePokemon(PokemonTrainer ennemyActivePokemon) {
-        this.ennemyActivePokemon = ennemyActivePokemon;
-    }
-
-    public void OnAttack(Attack attack)
-    {
-
-    }
-
-    @Override
-    public void onBackPressed() {
-
-    }
-
-
 }

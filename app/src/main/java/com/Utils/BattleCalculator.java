@@ -21,9 +21,18 @@ public class BattleCalculator {
         return ((2 * basePv * level) / 100 ) + level + 10;
     }
 
-    public static double isSucceedAttack(int precisionAttack, int precisionPkm, int escapePkm)
+    public static boolean isSucceedAttack(int precisionAttack, int precisionPkm, int escapePkm)
     {
-        return precisionAttack * (precisionPkm / escapePkm);
+        double succeedValue = precisionAttack * (precisionPkm / escapePkm);
+
+        //LOG_TODO get the boolean value from double
+        return true;
+    }
+
+    public static int getDamageDeals(int attack, int defense, int levelAttacker, int attackDamage, double multiplicator)
+    {
+        Double damageDeals = ((((levelAttacker * 0.4 + 2) * attack * attackDamage)/(defense * 50))+2)*multiplicator;
+        return damageDeals.intValue();
     }
 
     public static String getMessageAttackFromMultiplicator(double multiplicator)
