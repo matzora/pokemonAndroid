@@ -118,6 +118,23 @@ public class PokemonTrainer extends Pokemon{
         }
     }
 
+    public Attack getAttack(int index)
+    {
+        switch(index)
+        {
+            case 0:
+                return attack1;
+            case 1:
+                return attack2;
+            case 2:
+                return attack3;
+            case 3:
+                return attack4;
+            default:
+                return null;
+        }
+    }
+
     public boolean isDead() {
         return isDead;
     }

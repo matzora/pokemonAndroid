@@ -14,6 +14,8 @@ import com.Entity.PokemonTrainer;
 import com.Entity.Trainer;
 import com.Utils.BattleCalculator;
 
+import java.util.Random;
+
 /**
  * Created by Mathieu on 19/06/2016.
  */
@@ -64,7 +66,7 @@ public class BattleActivity  extends AppCompatActivity {
         attack1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BattleActivity.this.OnAttack(BattleActivity.this.getPlayerActivePokemon().getAttack1());
+                BattleActivity.this.battle(BattleActivity.this.getPlayerActivePokemon().getAttack1());
             }
         });
 
@@ -80,7 +82,7 @@ public class BattleActivity  extends AppCompatActivity {
         attack2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BattleActivity.this.OnAttack(BattleActivity.this.getPlayerActivePokemon().getAttack2());
+                BattleActivity.this.battle(BattleActivity.this.getPlayerActivePokemon().getAttack2());
             }
         });
 
@@ -96,7 +98,7 @@ public class BattleActivity  extends AppCompatActivity {
         attack3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BattleActivity.this.OnAttack(BattleActivity.this.getPlayerActivePokemon().getAttack3());
+                BattleActivity.this.battle(BattleActivity.this.getPlayerActivePokemon().getAttack3());
             }
         });
 
@@ -112,12 +114,17 @@ public class BattleActivity  extends AppCompatActivity {
         attack4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BattleActivity.this.OnAttack(BattleActivity.this.getPlayerActivePokemon().getAttack4());
+                BattleActivity.this.battle(BattleActivity.this.getPlayerActivePokemon().getAttack4());
             }
         });
     }
 
-    public void OnAttack(Attack attack)
+    public void battle(Attack playerAttack)
+    {
+
+    }
+
+    public void OnAttack(Attack attack, PokemonTrainer attacker, PokemonTrainer defensor)
     {
         double multiplicator = PokemonCore.getInstance().getTypeMatrix().getMultiplier(
                 attack.getType(),ennemyActivePokemon.getType());
@@ -133,7 +140,7 @@ public class BattleActivity  extends AppCompatActivity {
         else
         {
             attackStat = playerActivePokemon.getBattleAtk_Spe();
-            defStat = playerActivePokemon.getBattleDef_Spe();
+            defStat = ennemyActivePokemon.getBattleDef_Spe();
         }
 
         int damageDealsToEnnemy = BattleCalculator.getDamageDeals(attackStat,defStat,playerActivePokemon.getLevel(),attack.getDamage(),multiplicator);
@@ -178,6 +185,36 @@ public class BattleActivity  extends AppCompatActivity {
                 ennemyPokemonFragment.setPokemonTrainer(ennemyActivePokemon);
             }
         }
+    }
+
+    public Attack getRandomAttackFromNpcTrainer()
+    {
+        Attack attack = null;
+        while(attack == null)
+        {
+            Random r = new Random();
+            int i1 = r.nextInt(3 - 0) + 0;
+            attack = ennemyActivePokemon.getAttack(i1);
+        }
+
+        double multiplicator = PokemonCore.getInstance().getTypeMatrix().getMultiplier(
+                attack.getType(),playerActivePokemon.getType());
+
+        int attackStat;
+        int defStat;
+
+        if(attack.isPhysical())
+        {
+            attackStat = ennemyActivePokemon.getBattleAtk();
+            defStat = playerActivePokemon.getBattleDef();
+        }
+        else
+        {
+            attackStat = ennemyActivePokemon.getBattleAtk_Spe();
+            defStat = playerActivePokemon.getBattleDef_Spe();
+        }
+
+        return null;
     }
 
     @Override
