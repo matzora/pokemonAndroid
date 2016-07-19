@@ -21,6 +21,9 @@ import java.util.List;
 public class PokemonCore {
     private static PokemonCore ourInstance = null;
 
+    protected String apiIP = "http://5.39.88.6";
+
+    protected String loginUri = "/Pokemon/web/app_dev.php/login";
     protected Trainer player;
 
     protected ArrayList<Pokemon> pokemons;
@@ -48,7 +51,13 @@ public class PokemonCore {
 
         areas = AreaBuilder.getAreaList(trainers);
     }
+    public String getLoginUri() {
+        return loginUri;
+    }
 
+    public void setLoginUri(String loginUri) {
+        this.loginUri = loginUri;
+    }
     public TypeMatrix getTypeMatrix() {
         return typeMatrix;
     }
@@ -88,4 +97,11 @@ public class PokemonCore {
         this.pokemons = pokemons;
     }
 
+    public String getApiIP() {
+        return apiIP;
+    }
+
+    public void setApiIP(String apiIP) {
+        this.apiIP = apiIP;
+    }
 }

@@ -13,7 +13,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Open Area View"
-        android:id="@+id/buttonStart"
+        android:id="@+id/openSoloModeBtn"
         android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OPEN MULTIPLAYER ZONE"
+        android:id="@+id/openMultiplayerBtn"
+        android:layout_below="@+id/openSoloModeBtn"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -17,12 +17,21 @@ public class StartPage extends AppCompatActivity {
 
         PACKAGE_NAME = getApplicationContext().getPackageName();
 
-        Button btn = (Button)findViewById(R.id.buttonStart);
+        Button btn = (Button)findViewById(R.id.openSoloModeBtn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(StartPage.this, ScreenSlidePagerActivity.class);
                 startActivity(i);
+            }
+        });
+
+        Button btn2 = (Button)findViewById(R.id.openMultiplayerBtn);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent i = new Intent(StartPage.this, ScreenSlidePagerActivity.class);
+                //startActivity(i);
             }
         });
     }
