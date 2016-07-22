@@ -7,16 +7,18 @@ import java.io.Serializable;
  */
 public class Attack  implements Serializable {
 
+    protected int id;
+    protected int id_type;
     protected Type type;
     protected String name;
-    protected boolean isPhysical;
+    protected boolean physical;
     protected int damage;
     protected int accuracy;
 
-    public Attack(Type type, String name, boolean isPhysical, int damage, int accuracy) {
-        this.type = type;
+    public Attack(int id_type, String name, boolean isPhysical, int damage, int accuracy) {
+        this.id_type = id_type;
         this.name = name;
-        this.isPhysical = isPhysical;
+        this.physical = isPhysical;
         this.damage = damage;
         this.accuracy = accuracy;
     }
@@ -38,11 +40,11 @@ public class Attack  implements Serializable {
     }
 
     public boolean isPhysical() {
-        return isPhysical;
+        return physical;
     }
 
     public void setPhysical(boolean physical) {
-        isPhysical = physical;
+        physical = physical;
     }
 
     public int getDamage() {

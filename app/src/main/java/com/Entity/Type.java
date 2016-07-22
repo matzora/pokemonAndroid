@@ -9,29 +9,17 @@ import java.util.Map;
 /**
  * Created by Mathieu on 18/06/2016.
  */
-public enum Type implements Serializable{
+public class Type{
 
-    Normal("Normal"),
-    Fight("Fight"),
-    Flying("Flying"),
-    Poison("Poison"),
-    Ground("Ground"),
-    Rock("Rock"),
-    Bug("Bug"),
-    Ghost("Ghost"),
-    Fire("Fire"),
-    Water("Water"),
-    Grass("Grass"),
-    Electric("Electric"),
-    Psychic("Psychic"),
-    Ice("Ice"),
-    Dragon("Dragon");
+    private int id;
+    private String name;
 
-    protected String name;
+    public int getId() {
+        return id;
+    }
 
-    Type(String name)
-    {
-        this.name = name;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

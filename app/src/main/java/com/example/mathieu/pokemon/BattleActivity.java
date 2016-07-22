@@ -126,8 +126,10 @@ public class BattleActivity  extends AppCompatActivity {
 
     public void OnAttack(Attack attack, PokemonTrainer attacker, PokemonTrainer defensor)
     {
-        double multiplicator = PokemonCore.getInstance().getTypeMatrix().getMultiplier(
-                attack.getType(),ennemyActivePokemon.getType());
+//        double multiplicator = PokemonCore.getInstance().getTypeMatrix().getMultiplier(
+//                attack.getType(),ennemyActivePokemon.getType());
+
+        double multiplicator = 1;
 
         int attackStat;
         int defStat;
@@ -197,8 +199,10 @@ public class BattleActivity  extends AppCompatActivity {
             attack = ennemyActivePokemon.getAttack(i1);
         }
 
-        double multiplicator = PokemonCore.getInstance().getTypeMatrix().getMultiplier(
-                attack.getType(),playerActivePokemon.getType());
+//        double multiplicator = PokemonCore.getInstance().getTypeMatrix().getMultiplier(
+//                attack.getType(),playerActivePokemon.getType());
+
+        double multiplicator = 1;
 
         int attackStat;
         int defStat;

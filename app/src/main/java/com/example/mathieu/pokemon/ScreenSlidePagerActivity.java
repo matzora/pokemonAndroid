@@ -73,11 +73,11 @@ public class ScreenSlidePagerActivity extends FragmentActivity{
         public Fragment getItem(int position) {
             ScreenSlidePageFragment fragment = new ScreenSlidePageFragment();
 
-            PokemonCore core = PokemonCore.getInstance();
-
-            Area a = core.getAreaByPosition(position);
-
-            fragment.setArea(a);
+//            PokemonCore core = PokemonCore.getInstance(this);
+//
+//            Area a = core.getAreaByPosition(position);
+//
+//            fragment.setArea(a);
 
             return fragment;
         }

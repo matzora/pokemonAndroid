@@ -1,5 +1,9 @@
 package com.Core;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+
 import com.Entity.Area;
 import com.Entity.Attack;
 import com.Entity.Pokemon;
@@ -7,12 +11,14 @@ import com.Entity.PokemonTrainer;
 import com.Entity.Trainer;
 import com.Entity.Type;
 import com.Utils.AreaBuilder;
-import com.Utils.AttackBuilder;
-import com.Utils.PokemonBuilder;
+//import com.Utils.AttackBuilder;
+//import com.Utils.PokemonBuilder;
 import com.Utils.TrainerBuilder;
-import com.Utils.TypeMatrix;
+//import com.Utils.TypeMatrix;
+import com.example.mathieu.pokemon.StartPage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -21,19 +27,21 @@ import java.util.List;
 public class PokemonCore {
     private static PokemonCore ourInstance = null;
 
-    protected String apiIP = "http://5.39.88.6";
-
-    protected String loginUri = "/Pokemon/web/app_dev.php/login";
     protected Trainer player;
 
     protected ArrayList<Pokemon> pokemons;
+    protected ArrayList<Type> types;
+    protected ArrayList<Attack> attacks;
+
     protected ArrayList<Area> areas;
     protected ArrayList<Trainer> trainers;
-    protected ArrayList<Attack> attacks;
-    protected TypeMatrix typeMatrix;
 
-    public static PokemonCore getInstance() {
+    //protected TypeMatrix typeMatrix;
 
+    public APIConnector apiConnector;
+
+    public static PokemonCore getInstance()
+    {
         if(ourInstance == null)
         {
             ourInstance = new PokemonCore();
@@ -41,30 +49,34 @@ public class PokemonCore {
         return ourInstance;
     }
 
-    private PokemonCore() {
+    private PokemonCore()
+    {
+        pokemons = new ArrayList<Pokemon>();
+        types = new ArrayList<Type>();
+        attacks = new ArrayList<Attack>();
 
-        typeMatrix = new TypeMatrix(Type.values().length);
-        pokemons = PokemonBuilder.getPokemonList();
-        attacks = AttackBuilder.getAttackList();
-        player = TrainerBuilder.getPlayerTrainer(pokemons, attacks);
-        trainers = TrainerBuilder.getTrainerList(pokemons, attacks);
-
-        areas = AreaBuilder.getAreaList(trainers);
-    }
-    public String getLoginUri() {
-        return loginUri;
+        apiConnector = new APIConnector(this);
     }
 
-    public void setLoginUri(String loginUri) {
-        this.loginUri = loginUri;
-    }
-    public TypeMatrix getTypeMatrix() {
-        return typeMatrix;
+    public boolean areInitialRequestEnded()
+    {
+        boolean result = !pokemons.isEmpty() && !types.isEmpty() && !attacks.isEmpty();
+        return result;
     }
 
-    public void setTypeMatrix(TypeMatrix typeMatrix) {
-        this.typeMatrix = typeMatrix;
+    public void openStartPage(Context _context)
+    {
+        Intent i = new Intent(_context, StartPage.class);
+        _context.startActivity(i);
     }
+
+//    public TypeMatrix getTypeMatrix() {
+//        return typeMatrix;
+//    }
+//
+//    public void setTypeMatrix(TypeMatrix typeMatrix) {
+//        this.typeMatrix = typeMatrix;
+//    }
 
     public void setList(ArrayList<Area> areas)
     {
@@ -97,11 +109,4 @@ public class PokemonCore {
         this.pokemons = pokemons;
     }
 
-    public String getApiIP() {
-        return apiIP;
-    }
-
-    public void setApiIP(String apiIP) {
-        this.apiIP = apiIP;
-    }
 }

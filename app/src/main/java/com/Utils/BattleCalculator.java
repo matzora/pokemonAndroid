@@ -60,6 +60,8 @@ public class BattleCalculator {
         Type attackingType = atk.getType();
         Type defendingType = defensor.getType();
 
-        return PokemonCore.getInstance().getTypeMatrix().getMultiplier(attackingType,defendingType);
+
+        return 0;
+        //return PokemonCore.getInstance().getTypeMatrix().getMultiplier(attackingType,defendingType);
     }
 }
