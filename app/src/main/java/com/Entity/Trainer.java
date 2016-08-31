@@ -1,6 +1,7 @@
 package com.Entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by Mathieu on 18/06/2016.
@@ -11,29 +12,20 @@ public class Trainer  implements Serializable {
 
     private int pokemonNumber;
     private int pokemonMax = 5;
-    PokemonTrainer[] pokemons = new PokemonTrainer[6];
+    ArrayList<PokemonTrainer> pokemons;
 
     public Trainer(String name)
     {
+        pokemons = new ArrayList<PokemonTrainer>();
         pokemonNumber = 0;
         this.name = name;
     }
 
-    public void addPokemon(PokemonTrainer pkm)
-    {
-        if(pokemonNumber == 5)
-        {
-            return;
-        }
-        pokemons[pokemonNumber] = pkm;
-        pokemonNumber ++;
-    }
-
     public PokemonTrainer getNextPokemonTrainer()
     {
-        for(int i = 0 ; i < pokemons.length ; i ++)
+        for(int i = 0 ; i < pokemons.size() ; i ++)
         {
-            PokemonTrainer p = pokemons[i];
+            PokemonTrainer p = pokemons.get(i);
 
             if(p == null)
             {
@@ -43,7 +35,7 @@ public class Trainer  implements Serializable {
             {
                 if(!p.isDead())
                 {
-                    return pokemons[i];
+                    return pokemons.get(i);
                 }
             }
         }
@@ -66,11 +58,11 @@ public class Trainer  implements Serializable {
         this.npc = npc;
     }
 
-    public PokemonTrainer[] getPokemons() {
+    public ArrayList<PokemonTrainer> getPokemons() {
         return pokemons;
     }
 
-    public void setPokemons(PokemonTrainer[] pokemons) {
+    public void setPokemons(ArrayList<PokemonTrainer> pokemons) {
         this.pokemons = pokemons;
     }
 }

@@ -2,9 +2,14 @@ package com.Utils;
 
 import com.Core.PokemonCore;
 import com.Entity.Attack;
+import com.Entity.Multiplicator;
 import com.Entity.Pokemon;
 import com.Entity.PokemonTrainer;
 import com.Entity.Type;
+import com.Entity.TypeMatrix;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Mathieu on 19/06/2016.
@@ -31,7 +36,10 @@ public class BattleCalculator {
 
     public static int getDamageDeals(int attack, int defense, int levelAttacker, int attackDamage, double multiplicator)
     {
-        Double damageDeals = ((((levelAttacker * 0.4 + 2) * attack * attackDamage)/(defense * 50))+2)*multiplicator;
+        Double damageDeals = 0.;
+
+        damageDeals = ((((levelAttacker * 0.4 * 2)*attackDamage * attack)/(defense*50))+2);
+
         return damageDeals.intValue();
     }
 
@@ -55,13 +63,31 @@ public class BattleCalculator {
         }
     }
 
-    public static double getAttackMultiplicator(Attack atk, PokemonTrainer defensor)
+    public static Multiplicator getAttackMultiplicator(Attack atk, PokemonTrainer defensor)
     {
-        Type attackingType = atk.getType();
-        Type defendingType = defensor.getType();
+        Type attackingType = PokemonCore.getInstance().getTypeById(atk.getId_type());
 
+        Random r = new Random();
+        int i1 = r.nextInt(PokemonCore.getInstance().getTypes().size() - 1);
 
-        return 0;
-        //return PokemonCore.getInstance().getTypeMatrix().getMultiplier(attackingType,defendingType);
+        Type defendingType = PokemonCore.getInstance().getTypeById(i1);
+
+        ArrayList<TypeMatrix> typeMatrixList = PokemonCore.getInstance().getTypeMatrix();
+
+        for(int i = 1 ; i < typeMatrixList.size() ; i ++ )
+        {
+            if(typeMatrixList.get(i).getTypeAttacker().getId() == attackingType.getId()
+                    && typeMatrixList.get(i).getTypeDefender().getId() == defendingType.getId())
+            {
+                return typeMatrixList.get(i).getMultiplicator();
+            }
+        }
+        return new Multiplicator(1);
+    }
+
+    public static double multiplicator(Type attackingType, Type DefendingType)
+    {
+
+        return 1.0;
     }
 }

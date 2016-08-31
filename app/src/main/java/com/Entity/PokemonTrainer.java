@@ -2,6 +2,8 @@ package com.Entity;
 
 import com.Utils.BattleCalculator;
 
+import java.util.ArrayList;
+
 /**
  * Created by Mathieu on 18/06/2016.
  */
@@ -12,10 +14,7 @@ public class PokemonTrainer extends Pokemon{
     protected String nickname;
     protected boolean isDead;
 
-    protected Attack attack1;
-    protected Attack attack2;
-    protected Attack attack3;
-    protected Attack attack4;
+    ArrayList<Attack> attacks;
 
     protected int actualPV;
     protected int actualAtk;
@@ -31,17 +30,14 @@ public class PokemonTrainer extends Pokemon{
     protected int battleDef_Spe;
     protected int battleVit;
 
-    public PokemonTrainer(Pokemon pkm, int level, Attack atk1, Attack atk2, Attack atk3, Attack atk4)
+    public PokemonTrainer(Pokemon pkm, int level, ArrayList<Attack> _attacks)
     {
         super(pkm.getId(), pkm.getName(), pkm.getType(), pkm.getPv(), pkm.getAtk(), pkm.getDef()
                 ,pkm.getAtk_spe(), pkm.getDef_spe(), pkm.getVit()
                 , pkm.getXp_factor(), pkm.getCapture(), pkm.getAppear_chance());
 
         this.level = level;
-        attack1 = atk1;
-        attack2 = atk2;
-        attack3 = atk3;
-        attack4 = atk4;
+        this.attacks = _attacks;
 
         actualPV = BattleCalculator.getPVByLevel(pkm.getPv(),level);
         actualAtk = BattleCalculator.getStatByLevel(pkm.getAtk(),level);
@@ -60,17 +56,14 @@ public class PokemonTrainer extends Pokemon{
         isDead = ( actualPV == 0);
     }
 
-    public PokemonTrainer(Pokemon pkm, int level, Attack atk1, Attack atk2, Attack atk3, Attack atk4, int pv)
+    public PokemonTrainer(Pokemon pkm, int level, ArrayList<Attack> _attacks, int pv)
     {
         super(pkm.getId(), pkm.getName(), pkm.getType(), pkm.getPv(), pkm.getAtk(), pkm.getDef()
                 ,pkm.getAtk_spe(), pkm.getDef_spe(), pkm.getVit()
                 , pkm.getXp_factor(), pkm.getCapture(), pkm.getAppear_chance());
 
         this.level = level;
-        attack1 = atk1;
-        attack2 = atk2;
-        attack3 = atk3;
-        attack4 = atk4;
+        this.attacks = _attacks;
 
         actualPV = BattleCalculator.getPVByLevel(pkm.getPv(),level);
         actualAtk = BattleCalculator.getStatByLevel(pkm.getAtk(),level);
@@ -89,23 +82,13 @@ public class PokemonTrainer extends Pokemon{
         isDead = ( actualPV == 0);
     }
 
-    public void addAttack(Attack attack, int position)
+    public Attack getAttack(int index)
     {
-        switch(position)
+        if(index > attacks.size() - 1)
         {
-            case 0:
-                this.attack1 = attack;
-                break;
-            case 1:
-                this.attack2 = attack;
-                break;
-            case 2:
-                this.attack3 = attack;
-                break;
-            case 3:
-                this.attack4 = attack;
-                break;
+            return null;
         }
+        return attacks.get(index);
     }
 
     public void losePv(int pvLosed)
@@ -115,23 +98,6 @@ public class PokemonTrainer extends Pokemon{
         if(battlePV == 0 )
         {
             isDead = true;
-        }
-    }
-
-    public Attack getAttack(int index)
-    {
-        switch(index)
-        {
-            case 0:
-                return attack1;
-            case 1:
-                return attack2;
-            case 2:
-                return attack3;
-            case 3:
-                return attack4;
-            default:
-                return null;
         }
     }
 
@@ -263,37 +229,11 @@ public class PokemonTrainer extends Pokemon{
         this.nickname = nickname;
     }
 
-    public Attack getAttack1() {
-        return attack1;
+    public ArrayList<Attack> getAttacks() {
+        return attacks;
     }
 
-    public void setAttack1(Attack attack1) {
-        this.attack1 = attack1;
+    public void setAttacks(ArrayList<Attack> attacks) {
+        this.attacks = attacks;
     }
-
-    public Attack getAttack2() {
-        return attack2;
-    }
-
-    public void setAttack2(Attack attack2) {
-        this.attack2 = attack2;
-    }
-
-    public Attack getAttack3() {
-        return attack3;
-    }
-
-    public void setAttack3(Attack attack3) {
-        this.attack3 = attack3;
-    }
-
-    public Attack getAttack4() {
-        return attack4;
-    }
-
-    public void setAttack4(Attack attack4) {
-        this.attack4 = attack4;
-    }
-
-
 }

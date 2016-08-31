@@ -9,26 +9,17 @@ public class Attack  implements Serializable {
 
     protected int id;
     protected int id_type;
-    protected Type type;
     protected String name;
     protected boolean physical;
-    protected int damage;
+    protected int power;
     protected int accuracy;
 
-    public Attack(int id_type, String name, boolean isPhysical, int damage, int accuracy) {
+    public Attack(int id_type, String name, boolean isPhysical, int power, int accuracy) {
         this.id_type = id_type;
         this.name = name;
         this.physical = isPhysical;
-        this.damage = damage;
+        this.power = power;
         this.accuracy = accuracy;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
     }
 
     public String getName() {
@@ -47,12 +38,12 @@ public class Attack  implements Serializable {
         physical = physical;
     }
 
-    public int getDamage() {
-        return damage;
+    public int getPower() {
+        return power;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
+    public void setPower(int damage) {
+        this.power = damage;
     }
 
     public int getAccuracy() {
@@ -61,5 +52,13 @@ public class Attack  implements Serializable {
 
     public void setAccuracy(int accuracy) {
         this.accuracy = accuracy;
+    }
+
+    public int getId_type() {
+        return id_type;
+    }
+
+    public void setId_type(int id_type) {
+        this.id_type = id_type;
     }
 }

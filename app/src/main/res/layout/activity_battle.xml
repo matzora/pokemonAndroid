@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:id="@+id/battleLayout">
 
-    <fragment android:name="com.example.mathieu.pokemon.PokemonBattleFragment"
+    <fragment android:name="com.example.mathieu.pokemon.Fragment.PokemonBattleFragment"
         android:id="@+id/ennemyPokemon"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
 
     </fragment>
 
-    <fragment android:name="com.example.mathieu.pokemon.PokemonBattleFragment"
+    <fragment android:name="com.example.mathieu.pokemon.Fragment.PokemonBattleFragment"
         android:id="@+id/playerPokemon"
         android:orientation="horizontal"
         android:layout_width="match_parent"

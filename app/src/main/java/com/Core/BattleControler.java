@@ -2,7 +2,7 @@ package com.Core;
 
 import com.Entity.PokemonTrainer;
 import com.Entity.Trainer;
-import com.example.mathieu.pokemon.PokemonBattleFragment;
+import com.example.mathieu.pokemon.Fragment.PokemonBattleFragment;
 
 /**
  * Created by Mathieu on 22/06/2016.

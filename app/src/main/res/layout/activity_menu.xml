@@ -4,7 +4,7 @@
     android:id="@+id/GridLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.example.mathieu.pokemon.MenuActivity">
+    tools:context=".Activity.MenuActivity">
 
     <TableRow
         android:layout_height="wrap_content"
